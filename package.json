@@ -12,6 +12,7 @@
     "react-native-gesture-handler": "^1.0.12",
     "react-native-swiper": "^1.5.14",
     "react-navigation": "^3.0.9",
+    "tcomb-form-native": "^0.6.20",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {

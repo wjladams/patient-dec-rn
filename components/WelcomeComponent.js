@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default class Welcome extends React.Component {
@@ -8,8 +8,8 @@ export default class Welcome extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.welcomeText}>Welcome to Patient Decisions</Text>
-                <Text style={styles.startButton} onPress = {() => navigate('Info')}>Start here</Text>
+                <Text style={styles.welcomeText}>Welcome to WeDecide</Text>
+                <Text style={styles.startButton} onPress = {() => navigate('PatientForm')}>start here</Text>
                 <Text></Text>
             </View>
         );

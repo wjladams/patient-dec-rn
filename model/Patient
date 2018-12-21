@@ -1,0 +1,9 @@
+class Patient {
+    id,
+    firstName,
+    lastName,
+    age,
+    gender,
+    phoneNumber,
+    address
+}
