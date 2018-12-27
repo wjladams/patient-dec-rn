@@ -8,7 +8,7 @@ export default class Welcome extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.welcomeText}>Welcome to WeDecide</Text>
+                <Text style={styles.welcomeText}>WeDecide</Text>
                 <Text style={styles.startButton} onPress = {() => navigate('PatientForm')}>start here</Text>
                 <Text></Text>
             </View>

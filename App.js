@@ -1,7 +1,7 @@
 import React from 'react';
-import Welcome from './components/WelcomeComponent';
-import Info from './components/InfoComponent';
-import PatientForm from './components/PatientFormComponent';
+import Welcome from './components/Welcome';
+import Info from './components/Info';
+import PatientForm from './components/PatientForm';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 const AppNavigatior = createStackNavigator({

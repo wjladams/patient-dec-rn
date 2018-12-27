@@ -1,5 +1,0 @@
-export class Researcher {
-    id,
-    firstName,
-    lastName
-}
