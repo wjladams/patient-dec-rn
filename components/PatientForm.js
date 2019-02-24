@@ -1,14 +1,35 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
-import Tcomb from 'tcomb-form-native';
+import t from 'tcomb-form-native';
+import moment from 'moment';
 
-const patient = Tcomb.struct({
-    name: Tcomb.String,
-    age: Tcomb.Number,
-    gender: Tcomb.maybe(Tcomb.String),
+const Gender = t.enums({
+    M: 'Male',
+    F: 'Female'
 });
 
-const Form = Tcomb.form.Form;
+const BirthDate = {
+    label: 'Birth Date',
+    mode: 'date',
+    config: {
+        format: (date) => moment(date).format('MM/DD/YYYY')
+    }
+};
+
+const Patient = t.struct({
+    name: t.String,
+    birthDate: t.Date,
+    gender: Gender,
+    email: t.maybe(t.String)
+});
+
+let options = {
+    fields: {
+       "birthDate": BirthDate
+    }
+};
+
+const Form = t.form.Form;
 
 export default class PatientForm extends React.Component {
     static navigationOptions = {
@@ -24,17 +45,15 @@ export default class PatientForm extends React.Component {
         var value = this.refs.form.getValue();
         if (value != null) {
             const { navigate } = this.props.navigation;
-            navigate('Info', {patient: value});
+            navigate('Info', { patient: value });
         }
     }
 
     render() {
-        const options = {};
-
         return (
             <View style={styles.container}>
                 <Form ref="form"
-                    type={patient}
+                    type={Patient}
                     options={options}
                 />
                 <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
@@ -62,9 +81,8 @@ var styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
-        borderWidth: 2,
+        borderWidth: 10,
         borderRadius: 10,
-        margin: 10,
         marginTop: 20,
         marginBottom: 10,
         alignSelf: 'flex-start',
